@@ -2,6 +2,8 @@ package com.tutego.date4u.shell;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import javax.imageio.ImageIO;
 
@@ -34,4 +36,9 @@ public class PhotoCommands {
 
 	}
 	
+	@ShellMethod("upload photo")
+	public String uploadPhoto(String filename) throws IOException {
+		byte[] bytes = Files.readAllBytes(Paths.get(filename));
+		return "Uploaded " + photoService.upload(bytes);
+	}
 }

@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.util.unit.DataSize;
 
 @SpringBootApplication
 @EnableAsync
+@EnableCaching
 public class Date4uApplication {
 
 	private final static Logger logger = LoggerFactory.getLogger(Date4uApplication.class);

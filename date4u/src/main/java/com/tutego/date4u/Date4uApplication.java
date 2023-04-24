@@ -10,9 +10,11 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.util.unit.DataSize;
 
 @SpringBootApplication
+@EnableAsync
 public class Date4uApplication {
 
 	private final static Logger logger = LoggerFactory.getLogger(Date4uApplication.class);

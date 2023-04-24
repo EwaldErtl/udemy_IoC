@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InjectionPoint;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -13,7 +14,6 @@ import org.springframework.context.annotation.Scope;
 public class AppUuIdConfig {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
-
 
 	@Bean
 	public UUID appUuid() { 

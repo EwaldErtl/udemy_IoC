@@ -29,19 +29,32 @@ public class FileSystem {
 
 	public byte[] load(String fileName) { 
 		try {
-			return Files.readAllBytes(root.resolve(fileName));
+			return Files.readAllBytes(resolve(fileName));
 		} catch (IOException e) {
 			throw new UncheckedIOException(e);
 		}
 	}
 
+	private Path resolve(String fileName) {
+		Path path = root.resolve(fileName).toAbsolutePath().normalize();
+		if (!path.startsWith(root)) {
+			throw new SecurityException("Access to " + path + " denied");
+		}
+		return path;
+	}
+
 	public void store(String filename, byte[] bytes) { 
 		try {
-			Files.write(root.resolve(filename), bytes);
+			Files.write(resolve(filename), bytes);
 		} catch (IOException e) {
 			throw new UncheckedIOException(e);
 		}
 
+	}
+
+	public boolean exists(Path path) {
+		System.out.println(path);
+		return true;
 	}
     
 }
